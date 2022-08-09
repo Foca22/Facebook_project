@@ -23,8 +23,7 @@ public class Post {
     public Post() {
     }
 
-    public Post(Integer id, String text, Users users) {
-        this.id = id;
+    public Post(String text, Users users) {
         this.text = text;
         this.users = users;
     }
