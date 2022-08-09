@@ -27,6 +27,11 @@ public class Users {
     public Users() {
     }
 
+    public Users(String userName, String password) {
+        this.userName = userName;
+        this.password = password;
+    }
+
     public Users(Integer id, String userName, String password, Set<Post> userPosts) {
         this.id = id;
         this.userName = userName;
