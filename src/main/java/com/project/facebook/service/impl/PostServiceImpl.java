@@ -7,6 +7,7 @@ import com.project.facebook.repository.PostRepository;
 import com.project.facebook.service.PostService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,6 +37,11 @@ public class PostServiceImpl implements PostService {
     @Override
     public List<Post> getAllPosts() {
         return postRepository.findAll();
+    }
+
+    @Override
+    public List<Post> getPostDescending() {
+        return postRepository.findAll(Sort.by("id").descending());
     }
 
     private Post findPostById(Integer id) {

@@ -12,4 +12,6 @@ public interface PostService {
     Post getPost(Integer id);
 
     List<Post> getAllPosts();
+
+    List<Post> getPostDescending();
 }

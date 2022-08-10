@@ -46,9 +46,15 @@ public class PostController {
     }
 
     @GetMapping
-    private List<PostDto> getAllPosts() {
+    public List<PostDto> getAllPosts() {
         List<Post> posts = postService.getAllPosts();
         return postMapper.fromEntitiesToDtos(posts);
 
+    }
+
+    @GetMapping("/desc")
+    public List<PostDto> getPostsDescending() {
+        List<Post> postsDesc = postService.getPostDescending();
+        return postMapper.fromEntitiesToDtos(postsDesc);
     }
 }
