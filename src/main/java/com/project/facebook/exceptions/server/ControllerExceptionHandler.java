@@ -1,6 +1,7 @@
 package com.project.facebook.exceptions.server;
 
 import com.project.facebook.dto.error.ErrorDto;
+import com.project.facebook.exceptions.credentials.InvalidCredentialsException;
 import com.project.facebook.exceptions.post.PostNotFoundException;
 import com.project.facebook.exceptions.user.UserNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,12 @@ public class ControllerExceptionHandler {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ErrorDto handlePostNotFoundException(Exception exception) {
         return handleBaseException(exception, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler({InvalidCredentialsException.class})
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    public ErrorDto handleInvalidCredentialException(Exception exception){
+        return handleBaseException(exception, HttpStatus.FORBIDDEN);
     }
 
     private ErrorDto handleBaseException(Exception exception, HttpStatus httpStatus) {

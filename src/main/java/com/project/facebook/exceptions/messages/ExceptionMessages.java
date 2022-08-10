@@ -5,7 +5,8 @@ import org.springframework.http.HttpStatus;
 public enum ExceptionMessages {
 
     USER_NOT_FOUND("User not found!", HttpStatus.NOT_FOUND.toString()),
-    POST_NOT_FOUND("Post not found!", HttpStatus.NOT_FOUND.toString());
+    POST_NOT_FOUND("Post not found!", HttpStatus.NOT_FOUND.toString()),
+    INVALID_CREDENTIALS("Credentials not valid!", HttpStatus.FORBIDDEN.toString());
 
 
    private final String errorMessage;
